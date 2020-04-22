@@ -169,13 +169,6 @@ void draw() {
     for(int lx1=0; lx1 < playerHealth ;lx1++){
    image(life,10+70*lx1,10,50,50);
    }
-
-    for(int i = 0;i<5;i++){
-    image( startNormal, x, y,60,80);
-  
-    x += random(-5,5);
-    y += random(-5,5);
-    }
      
 		break;
 
