@@ -6,14 +6,23 @@ final int START_BUTTON_W = 144;
 final int START_BUTTON_H = 60;
 final int START_BUTTON_X = 248;
 final int START_BUTTON_Y = 360;
+//
+float  x=100,y=100;
 
 PImage title, gameover, startNormal, startHovered, restartNormal, restartHovered;
-PImage bg, soil8x24;
+PImage bg, soil8x24, soil0, soil1, soil2, soil3, soil4, soil5, stone1, stone2;
+PImage ghd,gh,ghl,ghr,life;
 
 // For debug function; DO NOT edit or remove this!
 int playerHealth = 0;
 float cameraOffsetY = 0;
 boolean debugMode = false;
+
+//size
+int size = 80;
+//life
+int lifepoint=2;
+int lifex=10;
 
 void setup() {
 	size(640, 480, P2D);
@@ -26,21 +35,31 @@ void setup() {
 	restartNormal = loadImage("img/restartNormal.png");
 	restartHovered = loadImage("img/restartHovered.png");
 	soil8x24 = loadImage("img/soil8x24.png");
+  soil0= loadImage("img/soil0.png");
+  soil1= loadImage("img/soil1.png");
+  soil2= loadImage("img/soil2.png");
+  soil3= loadImage("img/soil3.png");
+  soil4= loadImage("img/soil4.png");
+  soil5= loadImage("img/soil5.png");
+  life = loadImage("img/life.png");
+  stone1 = loadImage("img/stone1.png");
+  stone2 = loadImage("img/stone2.png");
 }
+
 
 void draw() {
     /* ------ Debug Function ------ 
 
       Please DO NOT edit the code here.
       It's for reviewing other requirements when you fail to complete the camera moving requirement.
-
+ 
     */
     if (debugMode) {
       pushMatrix();
       translate(0, cameraOffsetY);
     }
     /* ------ End of Debug Function ------ */
-
+     
     
 	switch (gameState) {
 
@@ -69,6 +88,7 @@ void draw() {
 
 		// Background
 		image(bg, 0, 0);
+    
 
 		// Sun
 	    stroke(255,255,0);
@@ -83,11 +103,80 @@ void draw() {
 
 		// Soil - REPLACE THIS PART WITH YOUR LOOP CODE!
 		image(soil8x24, 0, 160);
-
+    for(int i =0;i<8;i++){
+      for(int y =0;y<4;y++){
+      image(soil0,i*80,80*2+y*80,80,80);
+    }
+    }
+     for(int i =0;i<8;i++){
+      for(int y =0;y<4;y++){
+      image(soil1,i*80,80*6+y*80,80,80);
+    }
+    }
+     for(int i =0;i<8;i++){
+      for(int y =0;y<4;y++){
+      image(soil2,i*80,80*10+y*80,80,80);
+    }
+    }
+      for(int i =0;i<8;i++){
+      for(int y =0;y<4;y++){
+      image(soil3,i*80,80*14+y*80,80,80);
+    }
+    }
+      for(int i =0;i<8;i++){
+      for(int y =0;y<4;y++){
+      image(soil4,i*80,80*18+y*80,80,80);
+    }
+    }
+      for(int i =0;i<8;i++){
+      for(int y =0;y<4;y++){
+      image(soil5,i*80,80*22+y*80,80,80);
+    }
+    }
+//rock1
+    for(int i =0;i<8;i++){
+      image(stone1,i*size,80*2+i*size);
+      
+    }
+//rock2
+    for(int i =0;i<8;i++){
+    for(int y =0;y<8;y++){
+      if(i %4==2||i %4==1){
+        if(y%4==0||y%4==3){
+      image(stone1,i*size,80*10+y*size);
+    } 
+   }  
+  }
+ }
+      for(int i =0;i<8;i++){
+      for(int y =0;y<8;y++){
+      if(i %4==0||i %4==3){
+        if(y%4==1||y%4==2){
+      image(stone1,i*size,80*10+y*size);
+    } 
+   }  
+  }
+ }
+ //rock3
+     for(int i =0;i<8;i++){
+      image(stone1,width-i*size,80*15+i*size); 
+      image(stone1,width-i*size,80*17+i*size);
+      image(stone1,width-i*size,80*+18+i*size);
+     }
 		// Player
 
 		// Health UI
+    for(int lx1=0; lx1 < playerHealth ;lx1++){
+   image(life,10+70*lx1,10,50,50);
+   }
 
+    for(int i = 0;i<5;i++){
+    image( startNormal, x, y,60,80);
+  
+    x += random(-5,5);
+    y += random(-5,5);
+    }
+     
 		break;
 
 		case GAME_OVER: // Gameover Screen
@@ -109,6 +198,7 @@ void draw() {
 			image(restartNormal, START_BUTTON_X, START_BUTTON_Y);
 
 		}
+
 		break;
 		
 	}
@@ -126,12 +216,12 @@ void keyPressed(){
     switch(key){
       case 'w':
       debugMode = true;
-      cameraOffsetY += 25;
+      cameraOffsetY += 160;
       break;
 
       case 's':
       debugMode = true;
-      cameraOffsetY -= 25;
+      cameraOffsetY -= 160;
       break;
 
       case 'a':
