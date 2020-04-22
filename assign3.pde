@@ -19,7 +19,7 @@ float cameraOffsetY = 0;
 boolean debugMode = false;
 
 //size
-int size = 80;
+int asize = 80;
 //life
 int lifepoint=2;
 int lifex=10;
@@ -135,7 +135,7 @@ void draw() {
     }
 //rock1
     for(int i =0;i<8;i++){
-      image(stone1,i*size,80*2+i*size);
+      image(stone1,i*asize,80*2+i*asize);
       
     }
 //rock2
@@ -143,7 +143,7 @@ void draw() {
     for(int y =0;y<8;y++){
       if(i %4==2||i %4==1){
         if(y%4==0||y%4==3){
-      image(stone1,i*size,80*10+y*size);
+      image(stone1,i*asize,80*10+y*asize);
     } 
    }  
   }
@@ -152,16 +152,16 @@ void draw() {
       for(int y =0;y<8;y++){
       if(i %4==0||i %4==3){
         if(y%4==1||y%4==2){
-      image(stone1,i*size,80*10+y*size);
+      image(stone1,i*asize,80*10+y*asize);
     } 
    }  
   }
  }
  //rock3
      for(int i =0;i<8;i++){
-      image(stone1,width-i*size,80*15+i*size); 
-      image(stone1,width-i*size,80*17+i*size);
-      image(stone1,width-i*size,80*+18+i*size);
+      image(stone1,width-i*size,80*15+i*asize); 
+      image(stone1,width-i*size,80*17+i*asize);
+      image(stone1,width-i*size,80*+18+i*asize);
      }
 		// Player
 
