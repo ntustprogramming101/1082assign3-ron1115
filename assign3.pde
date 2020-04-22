@@ -102,7 +102,7 @@ void draw() {
 		rect(0, 160 - GRASS_HEIGHT, width, GRASS_HEIGHT);
 
 		// Soil - REPLACE THIS PART WITH YOUR LOOP CODE!
-		image(soil8x24, 0, 160);
+		
     for(int i =0;i<8;i++){
       for(int y =0;y<4;y++){
       image(soil0,i*80,80*2+y*80,80,80);
