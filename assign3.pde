@@ -243,12 +243,12 @@ void keyPressed(){
     switch(key){
       case 'w':
       debugMode = true;
-      cameraOffsetY += 160;
+      cameraOffsetY += 80;
       break;
 
       case 's':
       debugMode = true;
-      cameraOffsetY -= 160;
+      cameraOffsetY -= 80;
       break;
 
       case 'a':
