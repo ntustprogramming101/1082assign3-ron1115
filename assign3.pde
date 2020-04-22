@@ -159,16 +159,57 @@ void draw() {
  }
  //rock3
      for(int i =0;i<8;i++){
-      image(stone1,width-i*size,80*15+i*asize); 
-      image(stone1,width-i*size,80*17+i*asize);
-      image(stone1,width-i*size,80*+18+i*asize);
+       for(int y =0;y<8;y++){
+      if(y%3==0){
+       if(i%3==1){
+           
+      image(stone1,i*asize,80*18+y*asize);} 
+       else if(i%3==2){
+        image(stone1,i*asize,80*18+y*asize);
+        image(stone2,i*asize,80*18+y*asize);
      }
+    }  
+   }
+  }
+       for(int i =0;i<8;i++){
+       for(int y =0;y<8;y++){
+      if(y%3==1){
+       if(i%3==0){
+           
+      image(stone1,i*asize,80*18+y*asize);} 
+       else if(i%3==1){
+        image(stone1,i*asize,80*18+y*asize);
+        image(stone2,i*asize,80*18+y*asize);
+     }
+    }  
+   }
+  }
+       for(int i =0;i<8;i++){
+       for(int y =0;y<8;y++){
+       if(y%3==2){
+       if(i%3==2){
+           
+      image(stone1,i*asize,80*18+y*asize);} 
+       else if(i%3==0){
+        image(stone1,i*asize,80*18+y*asize);
+        image(stone2,i*asize,80*18+y*asize);
+     }
+    }  
+   }
+  }
 		// Player
 
 		// Health UI
     for(int lx1=0; lx1 < playerHealth ;lx1++){
    image(life,10+70*lx1,10,50,50);
    }
+
+    for(int i = 0;i<5;i++){
+    image( startNormal, x, y,60,80);
+  
+    x += random(-5,5);
+    y += random(-5,5);
+    }
      
 		break;
 
